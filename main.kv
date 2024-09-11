@@ -1,0 +1,101 @@
+
+<MapScreen>:
+    MDFloatLayout:
+        MapView:
+            id: mapview
+            lat: 37.7749
+            lon: -122.4194
+            zoom: 12
+        MDCard:
+            size_hint: .9, .1
+            pos_hint: {"center_x": .5, "top": 1}
+            md_bg_color: 1, 1, 1, 1
+            elevation: 10
+            MDLabel:
+                text: "My Car C23765"
+                halign: "center"
+        MDCard:
+            size_hint: .9, .3
+            pos_hint: {"center_x": .5, "y": .05}
+            md_bg_color: 1, 1, 1, 1
+            elevation: 10
+            MDLabel:
+                text: "Parking Spots"
+                halign: "center"
+                pos_hint: {"center_x": .5, "top": 1}
+                font_style: "H5"
+            FitImage:
+                source: "path_to_image_1.jpg"
+                size_hint: .3, 1
+                pos_hint: {"center_x": .3, "center_y": .5}
+            FitImage:
+                source: "path_to_image_2.jpg"
+                size_hint: .3, 1
+                pos_hint: {"center_x": .7, "center_y": .5}
+        MDFloatingActionButton:
+            icon: "menu"
+            pos_hint: {"center_x": .1, "center_y": .9}
+            md_bg_color: 1, 1, 1, 1
+        MDFloatingActionButton:
+            icon: "crosshairs-gps"
+            pos_hint: {"center_x": .9, "center_y": .9}
+            md_bg_color: 1, 1, 1, 1
+        MDFloatingActionButton:
+            icon: "arrow-left"
+            pos_hint: {"center_x": .5, "center_y": .9}
+            md_bg_color: 1, 1, 1, 1
+<ParkingCard>:
+    size_hint_y: None
+    height: "200dp"
+    md_bg_color: 1, 1, 1, 1
+    padding: dp(16)
+    radius: [20, 20, 20, 20]
+    elevation: 10
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [10, 10, 10, 5]
+
+            MDLabel:
+                text: "Parking Spots"
+                font_style: "H6"
+                halign: "left"
+                theme_text_color: "Primary"
+
+            MDLabel:
+                text: "255 Main Street"
+                font_style: "Caption"
+                halign: "left"
+                theme_text_color: "Hint"
+
+        ScrollView:
+            bar_width: 0
+            BoxLayout:
+                size_hint_x: None
+                width: self.minimum_width
+                height: "100dp"
+                spacing: dp(10)
+                padding: [10, 10, 10, 10]
+                ScrollView:
+                    BoxLayout:
+                        id: image_container
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: dp(100)
+                        spacing: dp(10)
+                        padding: [10, 0]
+
+                        ImageContainer:
+                            source: "parkng1.jpg"
+                        ImageContainer:
+                            source: "paking2.jpg"
+                        ImageContainer:
+                            source: "parkng1.jpg"
+
+<ImageContainer@FitImage>:
+    size_hint_x: None
+    width: dp(100)
+    radius: [20, 20, 20, 20]
